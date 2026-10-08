@@ -1,0 +1,13 @@
+{
+  "name": "AgriSense AI",
+  "short_name": "AgriSense",
+  "description": "AI advisory for crop disease, soil, weather and government schemes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F5DC",
+  "theme_color": "#0F8A72",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

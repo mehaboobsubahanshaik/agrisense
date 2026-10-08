@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-field text-soil-dark font-sans antialiased;
+    /* soil texture: two offset dot grids over a warm base */
+    background-image:
+      radial-gradient(rgba(109,76,65,.055) 1px, transparent 1px),
+      radial-gradient(rgba(46,125,50,.05) 1px, transparent 1px);
+    background-size: 18px 18px, 26px 26px;
+    background-position: 0 0, 9px 13px;
+  }
+  h1, h2, h3 { @apply font-display tracking-tight; }
+  :focus-visible { @apply outline-none ring-2 ring-leaf ring-offset-2 ring-offset-field rounded-lg; }
+  ::selection { background: #5FCBB0; color: #06342B; }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-black/5 p-4 sm:p-5;
+  }
+  .label { @apply block text-xs font-semibold uppercase tracking-wider text-soil-light mb-1.5; }
+  .input {
+    @apply w-full rounded-xl border border-soil-light/40 bg-white px-3.5 py-2.5 text-[15px]
+           placeholder:text-soil-light/70 focus:border-leaf focus:ring-2 focus:ring-leaf/25 outline-none transition;
+  }
+  .pill { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold; }
+  /* the horizon band: the app's signature element */
+  .horizon {
+    background:
+      linear-gradient(180deg, #0F8A72 0%, #0A5A4A 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .horizon::after {
+    content: '';
+    position: absolute; inset: auto 0 0 0; height: 26px;
+    background: repeating-linear-gradient(90deg, rgba(129,199,132,.55) 0 3px, transparent 3px 14px);
+    mask-image: linear-gradient(180deg, transparent, #000 70%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}

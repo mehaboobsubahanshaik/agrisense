@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.venv/
+uploads/
+models/*.pt
+!models/.gitkeep
+nginx/certs/*
+!nginx/certs/.gitkeep
+.DS_Store
